@@ -1,0 +1,135 @@
+refresh_library:
+  name: Refresh library
+  description: >-
+    Re-reads your full Music Assistant track library into this
+    integration's cache. Run this once after setup and again whenever
+    you add/remove music.
+  fields:
+    entry_id:
+      name: Entry ID
+      description: Only needed if you have multiple AI Mood Playlist entries.
+      required: false
+      selector:
+        text:
+
+discover_moods:
+  name: Discover moods
+  description: >-
+    Sends a summary of your cached library to the configured AI Task
+    entity and asks it to propose mood categories based on what you
+    actually own. Requires refresh_library to have been run first.
+  fields:
+    entry_id:
+      name: Entry ID
+      description: Only needed if you have multiple AI Mood Playlist entries.
+      required: false
+      selector:
+        text:
+    mood_count_min:
+      name: Minimum moods
+      description: Fewest mood categories to request.
+      required: false
+      default: 6
+      selector:
+        number:
+          min: 1
+          max: 20
+    mood_count_max:
+      name: Maximum moods
+      description: Most mood categories to request.
+      required: false
+      default: 10
+      selector:
+        number:
+          min: 1
+          max: 20
+
+play_mood:
+  name: Play mood
+  description: >-
+    Builds a playlist from your real library filtered to a mood, and
+    enqueues it on a media player via Music Assistant.
+  fields:
+    entity_id:
+      name: Media player
+      description: The Music Assistant-backed media player to play on.
+      required: true
+      selector:
+        entity:
+          domain: media_player
+    mood:
+      name: Mood
+      description: >-
+        Name of a mood discovered by discover_moods. If omitted, uses
+        whatever is currently selected on the Mood select entity.
+      required: false
+      selector:
+        text:
+    track_count:
+      name: Track count
+      description: How many tracks to queue.
+      required: false
+      default: 15
+      selector:
+        number:
+          min: 1
+          max: 200
+    clear_queue:
+      name: Clear queue
+      description: Clear the existing queue before playing.
+      required: false
+      default: true
+      selector:
+        boolean:
+    entry_id:
+      name: Entry ID
+      description: Only needed if you have multiple AI Mood Playlist entries.
+      required: false
+      selector:
+        text:
+
+play_prompt:
+  name: Play prompt
+  description: >-
+    Interprets a free-text request (genre, mood, vibe, artists) against your
+    real library and plays a matching selection. No pre-discovered mood
+    needed.
+  fields:
+    entity_id:
+      name: Media player
+      description: The Music Assistant-backed media player to play on.
+      required: true
+      selector:
+        entity:
+          domain: media_player
+    prompt:
+      name: Prompt
+      description: >-
+        e.g. "upbeat 80s synth pop" or "something mellow for a rainy
+        evening, jazzy".
+      required: true
+      selector:
+        text:
+    track_count:
+      name: Track count
+      description: How many tracks to queue.
+      required: false
+      default: 15
+      selector:
+        number:
+          min: 1
+          max: 200
+    clear_queue:
+      name: Clear queue
+      description: Clear the existing queue before playing.
+      required: false
+      default: true
+      selector:
+        boolean:
+    entry_id:
+      name: Entry ID
+      description: Only needed if you have multiple AI Mood Playlist entries.
+      required: false
+      selector:
+        text:
+

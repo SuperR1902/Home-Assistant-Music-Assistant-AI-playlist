@@ -1,0 +1,12 @@
+{
+  "domain": "ai_mood_playlist",
+  "name": "AI Mood Playlist",
+  "version": "0.7.0",
+  "documentation": "https://github.com/YOURNAME/ha-ai-mood-playlist",
+  "issue_tracker": "https://github.com/YOURNAME/ha-ai-mood-playlist/issues",
+  "dependencies": ["music_assistant", "ai_task"],
+  "codeowners": ["@YOURNAME"],
+  "requirements": [],
+  "iot_class": "calculated",
+  "config_flow": true
+}

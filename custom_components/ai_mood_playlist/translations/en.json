@@ -1,0 +1,32 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Set up AI Mood Playlist",
+        "description": "Connects to your Music Assistant library and an AI Task entity to build mood-based playlists from tracks you actually own.",
+        "data": {
+          "ma_config_entry_id": "Music Assistant instance",
+          "ai_task_entity_id": "AI Task entity",
+          "refresh_interval_hours": "Auto re-index every (hours, 0 to disable)",
+          "auto_discover_after_refresh": "Also re-discover moods after each refresh"
+        }
+      }
+    },
+    "abort": {
+      "no_music_assistant": "No Music Assistant integration was found. Set up Music Assistant first, then add AI Mood Playlist.",
+      "already_configured": "This Music Assistant instance is already configured for AI Mood Playlist."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "AI Mood Playlist settings",
+        "data": {
+          "ai_task_entity_id": "AI Task entity",
+          "refresh_interval_hours": "Auto re-index every (hours, 0 to disable)",
+          "auto_discover_after_refresh": "Also re-discover moods after each refresh"
+        }
+      }
+    }
+  }
+}
